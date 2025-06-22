@@ -5,8 +5,8 @@
 ## 📋 To-Do List
 
 ### 🔹 General Setup
-- [ ] Initialize project with Vite + React + TypeScript
-- [ ] Setup folder structure (`/components`, `/pages`, `/assets`, etc.)
+- [x] Initialize project with Vite + React + TypeScript
+- [x] Setup folder structure (`/components`, `/pages`, `/assets`, etc.)
 - [ ] Configure routing (React Router or similar)
 - [ ] Setup responsive layout (CSS, Tailwind, or styled-components)
 - [ ] Configure favicon and meta tags
