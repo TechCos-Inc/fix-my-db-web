@@ -6,7 +6,7 @@
     command="npm run dev"
 
 [build.environment]
-    NODE_VERSION = "22"
+    NODE_VERSION = "20"
     NPM_FLAGS = "--no-audit --no-fund"
 
 [[redirects]]
