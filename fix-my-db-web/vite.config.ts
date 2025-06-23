@@ -10,7 +10,7 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     commonjsOptions: {
-      include: [/recharts/, /node_modules/]
+      include: [/node_modules/]
     },
     rollupOptions: {
       external: () => {
