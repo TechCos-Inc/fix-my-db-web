@@ -82,6 +82,11 @@ body {
   margin-bottom: 1rem;
 }
 
+.clip-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 40%, 30% 40%);
+}
+
+
 .maintenance-text .highlight {
   font-weight: 500;
   color: var(--primary-color);

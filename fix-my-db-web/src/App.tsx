@@ -1,7 +1,8 @@
-import Maintenance from './components/Maintenance';
+// import Maintenance from './components/Maintenance';
+import UnderConstract from './components/UnderConstract/UnderConstract';
 
 function App() {
-  return <Maintenance />;
+  return <UnderConstract />;
 }
 
 export default App;
