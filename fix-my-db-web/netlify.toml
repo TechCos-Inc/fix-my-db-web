@@ -5,6 +5,10 @@
 [dev]
     command="npm run dev"
 
+[build.environment]
+    NODE_VERSION = "22"
+    NPM_FLAGS = "--no-audit --no-fund"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
