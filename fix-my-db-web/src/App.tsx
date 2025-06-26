@@ -1,9 +1,7 @@
-// import Maintenance from './components/Maintenance';
-import Header from './components/header';
-import Hero from './components/hero';
-import Home from './pages/Home';
-// import UnderConstract from './components/UnderConstract/UnderConstract';
 
+import Header from './components/header';
+import Home from './pages/Home';
+import './global.css'
 function App() {
   return (
     <>
