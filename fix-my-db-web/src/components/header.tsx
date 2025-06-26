@@ -48,7 +48,7 @@ export default function Header() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:block">
             <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-[#3d3e46]">
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -57,7 +57,7 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t animate-slide-down">
+          <div className="block py-4 border-t animate-slide-down">
             <nav className="flex flex-col space-y-4">
               <a href="#home" className="text-[#3d3e46] hover:text-[#e06325] transition-colors font-medium">
                 Home
