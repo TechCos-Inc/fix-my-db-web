@@ -64,8 +64,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                    <p className="text-gray-600">support@fixmydb.com</p>
-                    <p className="text-gray-600">sales@fixmydb.com</p>
+                    <p className="text-gray-600">technical-team@fixmydb.com</p>
+                    <p className="text-gray-600">fixmydbteam@gmail.com</p>
                   </div>
                 </div>
 
@@ -75,8 +75,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
-                    <p className="text-gray-600">24/7 Emergency: +1 (555) 999-0000</p>
+                    <p className="text-gray-600">+91 7093495068</p>
+                    <p className="text-gray-600">24/7 Emergency: +91 7093495068</p>
                   </div>
                 </div>
 
@@ -87,7 +87,7 @@ export default function Contact() {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Office</h4>
                     <p className="text-gray-600">123 Database Street</p>
-                    <p className="text-gray-600">Tech City, TC 12345</p>
+                    <p className="text-gray-600">Tech City, India </p>
                   </div>
                 </div>
               </div>
