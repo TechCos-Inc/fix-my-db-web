@@ -1,7 +1,14 @@
-import Maintenance from './components/Maintenance';
 
+import Header from './components/header';
+import Home from './pages/Home';
+import './global.css'
 function App() {
-  return <Maintenance />;
+  return (
+    <>
+      <Header />
+      <Home />
+    </>
+  )
 }
 
 export default App;
