@@ -17,7 +17,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="lg:block sm:hidden md:hidden space-x-8">
+          <nav className="lg:block sm:hidden md:hidden space-x-8 hidediv">
             <a href="#home" className="text-[#3d3e46] hover:text-[#e06325] transition-colors font-medium">
               Home
             </a>
@@ -35,7 +35,7 @@ export default function Header() {
             </a>
           </nav>
 
-          <div className="lg:block md:hidden sm:hidden items-center space-x-4 animate-fade-in-right">
+          <div className="lg:block md:hidden sm:hidden items-center space-x-4 animate-fade-in-right hidediv">
             <Button
               variant="outline"
               className="bg-white text-[#3d3e46] border-gray-300 hover:border-[#e06325] hover:text-[#e06325] transition-all"
