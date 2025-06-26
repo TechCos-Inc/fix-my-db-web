@@ -2,14 +2,11 @@
     command="npm run build"
     publish="dist"
 
-[dev]
-    command="npm run dev"
-
 [build.environment]
-    NODE_VERSION = "20"
+    NODE_VERSION = "22"
     NPM_FLAGS = "--no-audit --no-fund"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
+  from = "/fix-my-db-web/*"
+  to = "/fix-my-db-web/index.html"
   status = 200
