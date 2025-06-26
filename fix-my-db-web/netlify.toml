@@ -7,6 +7,6 @@
     NPM_FLAGS = "--no-audit --no-fund"
 
 [[redirects]]
-  from = "/fix-my-db-web/fix-my-db-web/*"
-  to = "/fix-my-db-web/fix-my-db-web/index.html"
+  from = "/*"
+  to = "/fix-my-db-web/index.html"
   status = 200
