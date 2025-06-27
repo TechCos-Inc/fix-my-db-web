@@ -1,89 +1,141 @@
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Menu, X } from "lucide-react"
-import logo from '../assets/logo.png'
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Menu, X } from "lucide-react";
+import logo from "../assets/logo.png";
 
 export default function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, id?: string) => {
+    setIsMenuOpen(false);
+    if (id) {
+      e.preventDefault();
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
-          <div className="flex items-center gap-2 animate-fade-in-left">
-            {/* <Database className="h-8 w-8 text-[#e06325] animate-pulse" /> */}
-            <img src={logo} alt="" className="w-10 h-10" />
-            <h1 className="text-2xl font-bold text-[#3d3e46]">FixMyDB</h1>
+    <header
+      className={`w-full bg-white sticky top-0 z-50 ${
+        isScrolled ? "z-[100] border-b border-gray-300" : ""
+      } transition-all duration-300`}
+    >
+      <div className="w-full px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-6 max-w-[1920px] mx-auto min-h-[80px]">
+          {/* Logo */}
+          <div className="flex items-center gap-2 md:gap-4 min-w-[120px] md:min-w-[160px] lg:min-w-[180px]">
+            <img
+              src={logo}
+              alt="FixMyDB Logo"
+              className="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 object-contain transition-transform duration-300 hover:scale-105"
+            />
+            <h1 className="text-lg md:text-2xl lg:text-4xl font-bold transition-colors duration-300 font-['Roboto_Slab','Roboto Slab',serif] text-[#e66023] hover:text-orange-500 whitespace-nowrap">
+              FixMyDB
+            </h1>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="lg:block sm:hidden md:hidden space-x-8 hidediv">
-            <a href="#home" className="text-[#3d3e46] hover:text-[#e06325] transition-colors font-medium">
-              Home
-            </a>
-            <a href="#services" className="text-[#3d3e46] hover:text-[#e06325] transition-colors font-medium">
-              Services
-            </a>
-            <a href="#about" className="text-[#3d3e46] hover:text-[#e06325] transition-colors font-medium">
-              About
-            </a>
-            <a href="#testimonials" className="text-[#3d3e46] hover:text-[#e06325] transition-colors font-medium">
-              Testimonials
-            </a>
-            <a href="#contact" className="text-[#3d3e46] hover:text-[#e06325] transition-colors font-medium">
-              Contact
-            </a>
+          <nav className="hidden md:flex flex-row items-center space-x-6 lg:space-x-8">
+            {['home', 'services', 'about',  'contact'].map((id) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                className="text-black font-medium  text-xl text-base relative transition-all duration-300 hover:text-orange-500 font-outfit"
+                onClick={(e) => handleLinkClick(e, id)}
+              >
+                {id.charAt(0).toUpperCase() + id.slice(1)}
+                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-orange-600 transition-all duration-300 hover:w-full"></span>
+              </a>
+            ))}
           </nav>
 
-          <div className="lg:block md:hidden sm:hidden items-center space-x-4 animate-fade-in-right hidediv">
+          {/* Desktop Button */}
+          <div className="hidden md:flex">
             <Button
-              variant="outline"
-              className="bg-white text-[#3d3e46] border-gray-300 hover:border-[#e06325] hover:text-[#e06325] transition-all"
+              className="ml-2 bg-[#ff7300] hover:bg-[#ff9800] text-white font-extrabold
+                px-3 md:px-6 lg:px-8 py-1.5 md:py-2 rounded-xl shadow-2xl ring-4 ring-[#ff7300]/40
+                hover:ring-[#ff9800]/60 transition-all duration-300 hover:scale-105
+                text-xs md:text-base lg:text-lg tracking-tight md:tracking-wide lg:tracking-wider drop-shadow-xl
+                border-2 border-white"
+              onClick={() => {
+                const el = document.getElementById('contact');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }}
             >
-              Login
-            </Button>
-            <Button className="bg-[#e06325] hover:bg-[#c55420] text-white transform hover:scale-105 transition-all duration-200">
-              Get Started
+              Get Free Consultation
             </Button>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:block lg:hidden sm:block">
-            <Button variant="ghost" size="sm" onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-[#3d3e46]">
+          {/* Mobile/Tablet Hamburger */}
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="text-black transition-transform duration-300 hover:scale-110"
+              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+            >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
           </div>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="block py-4 border-t animate-slide-down">
-            <nav className="flex flex-col space-y-4">
-              <a href="#home" className="text-[#3d3e46] hover:text-[#e06325] transition-colors font-medium">
-                Home
-              </a>
-              <a href="#services" className="text-[#3d3e46] hover:text-[#e06325] transition-colors font-medium">
-                Services
-              </a>
-              <a href="#about" className="text-[#3d3e46] hover:text-[#e06325] transition-colors font-medium">
-                About
-              </a>
-              <a href="#testimonials" className="text-[#3d3e46] hover:text-[#e06325] transition-colors font-medium">
-                Testimonials
-              </a>
-              <a href="#contact" className="text-[#3d3e46] hover:text-[#e06325] transition-colors font-medium">
-                Contact
-              </a>
-              <div className="flex flex-col space-y-2 pt-4">
-                <Button variant="outline" className="bg-white text-[#3d3e46] border-gray-300">
-                  Login
-                </Button>
-                <Button className="bg-[#e06325] hover:bg-[#c55420] text-white">Get Started</Button>
-              </div>
+          <div className="md:hidden fixed inset-x-0 top-16 bg-white shadow-md transition-all duration-300 animate-fadeIn px-4 z-[999]">
+            <nav className="flex flex-col items-center space-y-4 p-4">
+              {['home', 'services', 'about', 'contact'].map((id) => (
+                <a
+                  key={id}
+                  href={`#${id}`}
+                  className="text-black hover:text-orange-500 font-medium text-base transition-all duration-300 font-outfit"
+                  onClick={(e) => handleLinkClick(e, id)}
+                >
+                  {id.charAt(0).toUpperCase() + id.slice(1)}
+                </a>
+              ))}
+              <Button
+                className="mt-2 bg-[#ff7300] hover:bg-[#ff9800] text-white font-extrabold px-10 py-3 rounded-xl shadow-2xl ring-4 ring-[#ff7300]/40 hover:ring-[#ff9800]/60 transition-all duration-300 hover:scale-110 text-xl tracking-wider drop-shadow-xl border-2 border-white animate-bounce"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  const el = document.getElementById('contact');
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
+              >
+                Get Free Consultation
+              </Button>
             </nav>
           </div>
         )}
       </div>
+
+      {/* Inline style for link underline animation */}
+      <style>
+        {`
+          a {
+            position: relative;
+          }
+          a span {
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            transition: width 0.3s ease;
+          }
+          a:hover span {
+            width: 100%;
+          }
+        `}
+      </style>
     </header>
-  )
+  );
 }

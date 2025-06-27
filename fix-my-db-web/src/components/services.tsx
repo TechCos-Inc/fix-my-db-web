@@ -61,16 +61,16 @@ export default function Services() {
   ]
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-20 bg-white scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#3d3e46] mb-4">Our Database Services</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#3d3e46] mb-4 font-inter">Our Database Services</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
             Comprehensive MongoDB and MySQL solutions to keep your business running smoothly
           </p>
           <div className="mt-6 inline-flex items-center gap-4 bg-[#e06325]/10 rounded-full px-6 py-3">
             <Database className="h-5 w-5 text-[#e06325]" />
-            <span className="text-[#3d3e46] font-medium">All versions and flavors supported</span>
+            <span className="text-[#3d3e46] font-medium font-inter">All versions and flavors supported</span>
           </div>
         </div>
 
@@ -85,12 +85,12 @@ export default function Services() {
                 <div className="w-12 h-12 bg-[#e06325]/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-[#e06325]/20 transition-colors">
                   <service.icon className="h-6 w-6 text-[#e06325] group-hover:scale-110 transition-transform" />
                 </div>
-                <CardTitle className="text-xl font-semibold text-[#3d3e46] group-hover:text-[#e06325] transition-colors">
+                <CardTitle className="text-xl font-semibold text-[#3d3e46] group-hover:text-[#e06325] transition-colors font-inter">
                   {service.title}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-gray-600 leading-relaxed">{service.description}</CardDescription>
+                <CardDescription className="text-gray-600 leading-relaxed font-inter">{service.description}</CardDescription>
               </CardContent>
             </Card>
           ))}
