@@ -1,12 +1,12 @@
 [build]
     command="npm run build"
-    publish="dist"
+    publish="/fix-my-db-web/dist"
 
 [build.environment]
     NODE_VERSION = "22"
     NPM_FLAGS = "--no-audit --no-fund"
 
 [[redirects]]
-  from = "/*"
+  from = "/fix-my-db-web/*"
   to = "/fix-my-db-web/index.html"
   status = 200
