@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/logo.png";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -11,8 +13,13 @@ export default function Header() {
     setIsMenuOpen(false);
     if (id) {
       e.preventDefault();
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (id.toLocaleLowerCase() == "home") {
+        navigate('/')
+        window.scrollTo(0, 0);
+      } else {
+        navigate(`/${id}`)
+        window.scrollTo(0, 0);
+      }
     }
   };
 
@@ -26,9 +33,8 @@ export default function Header() {
 
   return (
     <header
-      className={`w-full bg-white sticky top-0 z-50 ${
-        isScrolled ? "z-[100] border-b border-gray-300" : ""
-      } transition-all duration-300`}
+      className={`w-full bg-white sticky top-0 z-50 ${isScrolled ? "z-[100] border-b border-gray-300" : ""
+        } transition-all duration-300`}
     >
       <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-6 max-w-[1920px] mx-auto min-h-[80px]">
@@ -46,11 +52,11 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex flex-row items-center space-x-6 lg:space-x-8">
-            {['home', 'services', 'about',  'contact'].map((id) => (
+            {['home', 'services', 'about', 'contact', 'privacy-policy', 'terms-of-service'].map((id) => (
               <a
                 key={id}
                 href={`#${id}`}
-                className="text-black font-medium  text-xl text-base relative transition-all duration-300 hover:text-orange-500 font-outfit"
+                className="text-black font-medium  text-xl relative transition-all duration-300 hover:text-orange-500 font-outfit"
                 onClick={(e) => handleLinkClick(e, id)}
               >
                 {id.charAt(0).toUpperCase() + id.slice(1)}

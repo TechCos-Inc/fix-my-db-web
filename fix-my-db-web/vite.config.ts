@@ -5,7 +5,7 @@ import path from "path"
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/fix-my-db-web/', 
+  base: '/fix-my-db-web/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
