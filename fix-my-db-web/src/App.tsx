@@ -6,6 +6,7 @@ import TermsOfService from './pages/TermsOfService';
 import ServicesPage from './pages/ServicePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPAge';
+import './index.css'
 
 function App() {
   return (

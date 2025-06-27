@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Database, Shield, Users } from "lucide-react"
+import style from '../global.module.css'
 
 export default function Hero() {
   return (
@@ -11,48 +12,48 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Text Section */}
-          <div className="animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 animate-bounce-subtle">
+          <div className={style.animatefadeinup}>
+            <div className={`inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-6 ${style.animatebouncesubtle}`}>
               <div className="w-2 h-2 bg-[#e06325] rounded-full animate-pulse"></div>
               <span className="text-sm font-medium text-[#3d3e46]">MongoDB & MySQL Experts</span>
             </div>
 
             <h1 className="text-4xl lg:text-6xl font-bold text-[#3d3e46] leading-tight">
               Fix Your Database
-              <span className="text-[#e06325] animate-gradient-text"> Issues Quickly</span>
+              <span className={`text-[#e06325] ${style.animategradienttext}`}> Issues Quickly</span>
             </h1>
 
-            <p className="text-xl text-gray-600 mt-6 leading-relaxed animate-fade-in-delayed">
+            <p className={`text-xl text-gray-600 mt-6 leading-relaxed ${style.animatefadeindelayed}`}>
               Certified MongoDB and MySQL experts providing professional consulting and optimization services.
               At FixMyDB, we stand for reliability, speed, and strong technical support — when it matters most.
             </p>
 
-           <div className="flex flex-wrap justify-center gap-4 mt-8 animate-slide-up">
+            <div className="flex flex-wrap justify-center gap-4 mt-8 animate-slide-up">
 
-            <Button
-              size="lg"
-              className="bg-[#e06325] hover:bg-[#c55420] text-white px-8 py-3 transform hover:scale-105 transition-all duration-200"
-              onClick={() => {
-                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              Get Free Consultation
-            </Button>
+              <Button
+                size="lg"
+                className="bg-[#e06325] hover:bg-[#c55420] text-white px-8 py-3 transform hover:scale-105 transition-all duration-200"
+                onClick={() => {
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Get Free Consultation
+              </Button>
 
-            <Button
-              size="lg"
-              variant="outline"
-              className="btn-outline"
-              onClick={() => {
-                document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
-              View Our Services
-            </Button>
-          </div>
+              <Button
+                size="lg"
+                variant="outline"
+                className="btn-outline"
+                onClick={() => {
+                  document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                View Our Services
+              </Button>
+            </div>
 
 
-            <div className="flex items-center gap-8 mt-12 animate-fade-in-up-delayed">
+            <div className={`flex items-center gap-8 mt-12 ${style.animatefadeinupdelayed}`}>
               <div className="flex items-center gap-2 group">
                 <Database className="h-6 w-6 text-[#e06325] group-hover:animate-spin transition-transform" />
                 <span className="text-sm text-gray-600">MongoDB & MySQL</span>
@@ -69,7 +70,7 @@ export default function Hero() {
           </div>
 
           {/* Right Visual Section */}
-          <div className="relative animate-float">
+          <div className={`relative ${style.animatefloat}`}>
             <div className="bg-white rounded-2xl shadow-2xl p-8 relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-[#e06325]/5 to-blue-500/5"></div>
               <div className="relative z-10">
@@ -83,17 +84,17 @@ export default function Hero() {
                 </div>
 
                 <div className="space-y-3 font-mono text-sm">
-                  <div className="flex items-center gap-2 animate-type-writer">
+                  <div className={`flex items-center gap-2 ${style.animatetypewriter}`}>
                     <span className="text-[#e06325]">{">"}</span>
                     <span className="text-[#3d3e46]">db.users.find()</span>
-                    <div className="w-2 h-4 bg-[#e06325] animate-blink"></div>
+                    <div className={`w-2 h-4 bg-[#e06325] ${style.animateblink}`}></div>
                   </div>
                   <div className="bg-gray-50 rounded p-3 animate-fade-in">
                     <div className="h-2 bg-gray-200 rounded animate-pulse mb-2"></div>
                     <div className="h-2 bg-gray-200 rounded animate-pulse w-3/4 mb-2"></div>
                     <div className="h-2 bg-[#e06325]/20 rounded animate-pulse w-1/2"></div>
                   </div>
-                  <div className="flex items-center gap-2 text-green-600 animate-fade-in-delayed">
+                  <div className={`flex items-center gap-2 text-green-600 ${style.animatefadeindelayed}`}>
                     <span>✓</span>
                     <span>Query optimized — 85% faster</span>
                   </div>
